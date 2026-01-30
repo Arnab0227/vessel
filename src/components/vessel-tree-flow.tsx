@@ -110,24 +110,6 @@ const VesselTreeFlow: React.FC<VesselTreeFlowProps> = ({ rootNode }) => {
     setSearchQuery('');
   }, []);
 
-  const handleExpandAll = useCallback(() => {
-    setNodes((nds) =>
-      nds.map((node) => ({
-        ...node,
-        data: { ...node.data },
-      }))
-    );
-  }, [setNodes]);
-
-  const handleCollapseAll = useCallback(() => {
-    setNodes((nds) =>
-      nds.map((node) => ({
-        ...node,
-        data: { ...node.data },
-      }))
-    );
-  }, [setNodes]);
-
   return (
     <div className="flex flex-col h-full">
 
@@ -145,19 +127,6 @@ const VesselTreeFlow: React.FC<VesselTreeFlowProps> = ({ rootNode }) => {
         </div>
 
         <div className="flex gap-2 flex-wrap">
-          <button
-            onClick={handleExpandAll}
-            className="px-4 py-2 text-sm font-medium text-white rounded-md transition-colors"
-            style={{ backgroundColor: colorPalette.equipment }}
-          >
-            Expand All
-          </button>
-          <button
-            onClick={handleCollapseAll}
-            className="px-4 py-2 text-sm font-medium bg-gray-300 text-gray-900 rounded-md hover:bg-gray-400 transition-colors"
-          >
-            Collapse All
-          </button>
           {searchQuery && (
             <>
               <button
